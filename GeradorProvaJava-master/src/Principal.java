@@ -7,7 +7,7 @@ public class Principal {
         String lixo="", op="";
         Prova m1 = new Prova();
         
-        System.out.print("Informe a disciplina: ");
+        System.out.print("Informe o nome da disciplina: ");
         m1.setNomeDisciplina(s.nextLine());
         System.out.print("\nInforme o peso: ");
         m1.setPeso(s.nextInt());
