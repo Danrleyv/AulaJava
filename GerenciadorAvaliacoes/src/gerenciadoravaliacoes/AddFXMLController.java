@@ -234,6 +234,10 @@ public final class AddFXMLController extends InterfaceUsuario{
     
     @FXML
     public void salvar(ActionEvent evento ) throws FileNotFoundException, IOException{
+        lb1.setText("");
+        lb2.setText("");
+        lb3.setText("");
+        lb4.setText("");
         if(this.tfNome.getText().isEmpty()){
             lb1.setText("Por favor insira o nome da Avaliacao");
             return;
@@ -255,20 +259,18 @@ public final class AddFXMLController extends InterfaceUsuario{
         Avaliacao av = new Avaliacao();
 
         av.setDisciplina(this.menuDisciplinas.getText());
-        av.setMedia(this.menuMedia.getText().toCharArray());
+        av.setMedia(this.menuMedia.getText());
         av.setNome(this.tfNome.getText());
         av.setPeso(Double.parseDouble(this.tfPeso.getText()));
+        av.setNota(0.0);
         av.setIdNoArquivo(this.lista.size());
-        System.out.println(av.getMedia());
-        
-        av.salvar();
        
         this.lista.add(av);
         
         PrincipalFXMLController telaAnterior = new PrincipalFXMLController();
         telaAnterior.avaliacoes = this.lista;
-        //telaAnterior.avaliacoes.salvar();
-        telaAnterior.lista.add(new AvaliacaoApoio(av.getNome(),av.getDisciplina(),av.getPeso(),Arrays.toString(av.getMedia()),0.0,this.lista.size()-1));
+        telaAnterior.salvarLista(telaAnterior.avaliacoes);
+        telaAnterior.apoio.add(new AvaliacaoApoio(av.getNome(),av.getDisciplina(),av.getPeso(),av.getMedia(),0.0,telaAnterior.apoio.size()));
         GerenciadorJanela.obterInstancia().voltar();
     }
     

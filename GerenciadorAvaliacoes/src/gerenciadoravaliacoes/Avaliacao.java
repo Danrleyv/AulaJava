@@ -15,27 +15,23 @@ class Avaliacao {
     private String disciplina;
     private Double nota;
     private Double peso;
-    private char[] media;
+    private String media;
     private int idNoArquivo;
 
-    public void salvar() throws IOException{
+    public String salvar() throws IOException{
         String dados;
         dados=this.disciplina;
-        dados+=","+this.media.toString();
+        dados+=","+this.media;
         dados+=","+this.nome;
         dados+=","+this.peso.toString();
         
-        try (FileWriter listaAvaliacoes = new FileWriter("C:\\Users\\Acer E5-553G\\Desktop\\AulaJava\\AulaJava\\GerenciadorAvaliacoes\\listaAvaliacoes.csv")) {
-            PrintWriter gravar = new PrintWriter(listaAvaliacoes);
-            gravar.println();
-            listaAvaliacoes.close();
-        }
+        return dados;
         
     }
     
     public Avaliacao(){}
     
-    public Avaliacao(String nome, String disciplina, char[] media, Double peso, Double nota, int id){
+    public Avaliacao(String nome, String disciplina, String media, Double peso, Double nota, int id){
         this.nome=nome;
         this.disciplina=disciplina;
         this.media=media;
@@ -45,9 +41,7 @@ class Avaliacao {
     }
     
     
-    public void atualizar(){
-        
-    }
+    
 
     /**
      * @return the nome
@@ -108,14 +102,14 @@ class Avaliacao {
     /**
      * @return the media
      */
-    public char[] getMedia() {
+    public String getMedia() {
         return media;
     }
 
     /**
      * @param media the media to set
      */
-    public void setMedia(char[] media) {
+    public void setMedia(String media) {
         this.media = media;
     }
 

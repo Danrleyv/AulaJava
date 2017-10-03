@@ -46,9 +46,9 @@ public class NotaFXMLController extends InterfaceUsuario{
         this.media.setText(this.media.getText()+this.avaliacao.getMedia());
     }
     
-    public void recebeLista(ArrayList<Avaliacao> al, Avaliacao av){
+    public void recebeLista(ArrayList<Avaliacao> al, int pos){
         this.lista=al;
-        this.avaliacao=av;
+        this.avaliacao=this.lista.get(pos);
         
     }
     
@@ -60,9 +60,10 @@ public class NotaFXMLController extends InterfaceUsuario{
     @FXML
     public void salvar(ActionEvent evento ) throws IOException{
         this.avaliacao.setNota(Double.parseDouble(this.tfNota.getText()));
-        avaliacao.salvar();
+        this.lista.set(this.avaliacao.getIdNoArquivo(), avaliacao);
         PrincipalFXMLController telaAnterior = new PrincipalFXMLController();
-        //telaAnterior.avaliacoes.get(this.avaliacao.getIdNoArquivo()).setNota(Double.parseDouble(this.tfNota.getText()));
+        telaAnterior.avaliacoes = this.lista;
+        telaAnterior.salvarLista(telaAnterior.avaliacoes);
         GerenciadorJanela.obterInstancia().voltar();
     }
 }

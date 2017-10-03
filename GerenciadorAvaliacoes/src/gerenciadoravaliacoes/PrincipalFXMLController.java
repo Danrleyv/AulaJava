@@ -1,6 +1,8 @@
 package gerenciadoravaliacoes;
 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.EventListener;
@@ -12,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,10 +27,11 @@ public class PrincipalFXMLController extends InterfaceUsuario{
     
     public Avaliacao av1 = new Avaliacao();
     public ArrayList<Avaliacao> avaliacoes = new ArrayList();
-    public final ObservableList<AvaliacaoApoio> lista = FXCollections.observableArrayList(new AvaliacaoApoio("prova","POOII",7.5,"M1",0.0,0));
+    public ArrayList<AvaliacaoApoio> apoio = new ArrayList();
+
     
     @FXML
-    TableView<AvaliacaoApoio> tbvTabela;
+    public TableView<AvaliacaoApoio> tbvTabela;
     @FXML
     TableColumn tbcNome;
     @FXML
@@ -46,6 +50,7 @@ public class PrincipalFXMLController extends InterfaceUsuario{
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         
         tbcNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tbcDisciplina.setCellValueFactory(new PropertyValueFactory<>("disciplina"));
@@ -53,7 +58,7 @@ public class PrincipalFXMLController extends InterfaceUsuario{
         tbcPeso.setCellValueFactory(new PropertyValueFactory<>("peso"));
         tbcNota.setCellValueFactory(new PropertyValueFactory<>("nota"));
         
-        tbvTabela.setItems(lista);
+        tbvTabela.setItems(FXCollections.observableArrayList(apoio));
     }
     
     
@@ -63,26 +68,15 @@ public class PrincipalFXMLController extends InterfaceUsuario{
         AddFXMLController proximaTela = new AddFXMLController();
         proximaTela.recebeLista(avaliacoes);
         GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
-        System.out.println(avaliacoes.size());
-        for(int i=0;i<avaliacoes.size();i++){
-            System.out.println(avaliacoes.get(i).getNome());
-        }
     }
     
     
     @FXML
     public void irParaTelaNota(ActionEvent evento){
+        
         NotaFXMLController proximaTela = new NotaFXMLController();
-        AvaliacaoApoio ava = this.tbvTabela.getSelectionModel().getSelectedItem();
-        av1.setNome(ava.getNome());
-        av1.setDisciplina(ava.getDisciplina());
-        av1.setMedia(ava.getMedia().toCharArray());
-        av1.setNota(ava.getNota());
-        av1.setPeso(ava.getPeso());
-        av1.setIdNoArquivo(ava.getId());
-        proximaTela.recebeLista(avaliacoes,av1);
+        proximaTela.recebeLista(avaliacoes,this.tbvTabela.getSelectionModel().getSelectedItem().getId());
         GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
-        System.out.println(lista.get(lista.size()-1).getNota());
     }
     
     @FXML
@@ -90,6 +84,31 @@ public class PrincipalFXMLController extends InterfaceUsuario{
         DesempenhoFXMLController proximaTela = new DesempenhoFXMLController();
         proximaTela.recebeLista(avaliacoes);
         GerenciadorJanela.obterInstancia().abreJanela(proximaTela);
+    }
+    
+    public void populaLista(ArrayList<Avaliacao> av){
+        this.apoio.clear();
+        for(int i=0;i<av.size();i++){
+            AvaliacaoApoio ap = new AvaliacaoApoio(av.get(i).getNome(), av.get(i).getDisciplina(), av.get(i).getPeso(), av.get(i).getMedia().toString(), av.get(i).getNota().doubleValue(), i);
+            this.apoio.add(ap);
+        }
+    }
+    
+    @FXML
+    public void atualizarTabela(ActionEvent evento){
+        populaLista(this.avaliacoes);
+        tbvTabela.setItems(FXCollections.observableArrayList(apoio));
+    }
+    
+    public void salvarLista(ArrayList<Avaliacao> av) throws IOException{        
+        try (FileWriter listaAvaliacoes = new FileWriter("C:\\Users\\Acer E5-553G\\Desktop\\AulaJava\\AulaJava\\GerenciadorAvaliacoes\\listaAvaliacoes.csv")) {
+            PrintWriter gravar = new PrintWriter(listaAvaliacoes);
+            for(int i=0;i<av.size();i++){
+                gravar.println(av.get(i).salvar());
+            }
+            
+            listaAvaliacoes.close();
+        }
     }
     
 }

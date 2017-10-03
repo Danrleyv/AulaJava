@@ -177,6 +177,48 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         GerenciadorJanela.obterInstancia().voltar();
     }
     
+    public void calculaMedia(String x){
+        Double m1=0.0;
+        Double pesoM1=0.0;
+        Double m2=0.0;
+        Double pesoM2=0.0;
+        Double m3=0.0;
+        Double pesoM3=0.0;
+        
+        
+        for(int i=0;i<this.lista.size();i++){
+            if(this.lista.get(i).getDisciplina().equals(x)){
+                switch(this.lista.get(i).getMedia()){
+                    case "M1":
+                        m1+=m1/this.lista.get(i).getPeso();
+                        pesoM1+=this.lista.get(i).getPeso();
+                        break;
+                    case "M2":
+                        m2+=m2/this.lista.get(i).getPeso();
+                        pesoM2+=this.lista.get(i).getPeso();
+                        break;
+                    case "M3":
+                        m3+=m3/this.lista.get(i).getPeso();
+                        pesoM3+=this.lista.get(i).getPeso();
+                        break;
+                }
+            }
+        }
+        
+        m1=m1/pesoM1;
+        m2=m2/pesoM2;
+        m3=m3/pesoM3;
+        Double mf=(m1+m2+m3)/3;
+ 
+        XYChart.Series series1 = new XYChart.Series();
+        series1.getData().add(new XYChart.Data("M1", m1));
+        series1.getData().add(new XYChart.Data("M2", m2));
+        series1.getData().add(new XYChart.Data("M3", m3));
+        series1.getData().add(new XYChart.Data("MF", mf));
+        
+        bcGrafico.getData().addAll(series1);
+    }
+    
     @FXML
     public void selecionar0(ActionEvent evento){
         this.menuDisciplinas.setText(this.item0.getText());
@@ -190,27 +232,27 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item0.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
-                        m1+=10/this.lista.get(i).getPeso();
+                        m1+=this.lista.get(i).getNota()*this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
                         break;
                     case "M2":
-                        m2+=6/this.lista.get(i).getPeso();
+                        m2+=this.lista.get(i).getNota()*this.lista.get(i).getPeso();
                         pesoM2+=this.lista.get(i).getPeso();
                         break;
                     case "M3":
-                        m3+=5/this.lista.get(i).getPeso();
+                        m3+=this.lista.get(i).getNota()*this.lista.get(i).getPeso();
                         pesoM3+=this.lista.get(i).getPeso();
                         break;
                 }
             }
         }
         
-        m1=5.0;
-        m2=7.5;
-        m3=4.0;
-        Double mf=5.0;
+        m1=m1/pesoM1;
+        m2=m2/pesoM2;
+        m3=m3/pesoM3;
+        Double mf=(m1+m2+m3)/3;
  
         XYChart.Series series1 = new XYChart.Series();
         series1.getData().add(new XYChart.Data("M1", m1));
@@ -234,7 +276,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item1.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -278,7 +320,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item2.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -322,7 +364,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item3.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -366,7 +408,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item4.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -410,7 +452,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item5.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -454,7 +496,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item6.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -498,7 +540,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item7.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -542,7 +584,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item8.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -586,7 +628,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item9.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -629,7 +671,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item10.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -673,7 +715,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item11.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -717,7 +759,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item12.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -760,7 +802,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item13.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -804,7 +846,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item14.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -848,7 +890,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item15.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -892,7 +934,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item16.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -936,7 +978,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item17.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -980,7 +1022,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item18.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1024,7 +1066,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item19.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1068,7 +1110,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item20.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1111,7 +1153,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item21.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1156,7 +1198,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item22.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1200,7 +1242,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item23.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1244,7 +1286,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item24.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1288,7 +1330,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item25.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1332,7 +1374,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item26.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1376,7 +1418,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item27.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1420,7 +1462,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item28.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1465,7 +1507,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item29.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1510,7 +1552,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item30.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1554,7 +1596,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item31.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1598,7 +1640,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item32.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1642,7 +1684,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item33.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1686,7 +1728,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item34.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1730,7 +1772,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item35.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1774,7 +1816,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item36.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1818,7 +1860,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item37.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1862,7 +1904,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item38.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1906,7 +1948,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item39.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1950,7 +1992,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item40.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -1994,7 +2036,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item41.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2038,7 +2080,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item42.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2082,7 +2124,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item43.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2126,7 +2168,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item44.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2170,7 +2212,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item45.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2214,7 +2256,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item46.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2258,7 +2300,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item47.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2302,7 +2344,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item48.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2346,7 +2388,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item49.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2390,7 +2432,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item50.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2434,7 +2476,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item51.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2478,7 +2520,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item52.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2522,7 +2564,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item53.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2566,7 +2608,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item54.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2610,7 +2652,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item55.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2654,7 +2696,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item56.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2698,7 +2740,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item57.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2742,7 +2784,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item58.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2786,7 +2828,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item59.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2830,7 +2872,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item60.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
@@ -2874,7 +2916,7 @@ public class DesempenhoFXMLController extends InterfaceUsuario {
         
         for(int i=0;i<this.lista.size();i++){
             if(this.lista.get(i).getDisciplina().equals(this.item61.getText())){
-                switch(this.lista.get(i).getMedia().toString()){
+                switch(this.lista.get(i).getMedia()){
                     case "M1":
                         m1+=10/this.lista.get(i).getPeso();
                         pesoM1+=this.lista.get(i).getPeso();
