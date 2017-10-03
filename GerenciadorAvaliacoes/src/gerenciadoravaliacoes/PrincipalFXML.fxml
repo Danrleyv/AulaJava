@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768" prefWidth="1024" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="tbvTabela" layoutX="92.0" layoutY="111.0" prefHeight="500.0" prefWidth="850.0" AnchorPane.bottomAnchor="115.0" AnchorPane.leftAnchor="86.5" AnchorPane.rightAnchor="87.1" AnchorPane.topAnchor="115.40">
+         <columns>
+            <TableColumn fx:id="tbcNome" prefWidth="180.0" text="Nome" />
+            <TableColumn fx:id="tbcDisciplina" prefWidth="220.0" text="Disciplina" />
+            <TableColumn fx:id="tbcMedia" prefWidth="150.0" text="Media" />
+            <TableColumn fx:id="tbcPeso" prefWidth="150.0" text="Peso" />
+            <TableColumn fx:id="tbcNota" prefWidth="150.0" text="Minha Nota" />
+         </columns>
+      </TableView>
+      <Button layoutX="781.0" layoutY="660.0" mnemonicParsing="false" onAction="#irParaTelaDesempenho" text="Mostrar Desempenho" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="177.0" layoutY="49.0" mnemonicParsing="false" onAction="#irParaTelaNota" text="Informar Nota" textAlignment="CENTER" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="781.0" layoutY="49.0" mnemonicParsing="false" onAction="#irParaTelaAdd" text="Adicionar Nova Avaliacao" textAlignment="CENTER" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

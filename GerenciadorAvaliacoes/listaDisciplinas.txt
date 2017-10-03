@@ -1,0 +1,62 @@
+Administracao de Negocios de Base Tecnologica
+Analise de Circuitos Eletricos
+Analise e Controle de Processos
+Algebra I
+Algebra II
+Algoritmos e Programacao I
+Algoritmos e Programacao II
+Arquitetura de Computadores I
+Arquitetura de Computadores II
+Banco de Dados
+Calculo I
+Calculo II
+Calculo III
+Calculo Numerico
+Circuitos Digitais
+Comunicacao Digital
+Controle Logico de Sistemas
+Desenho Tecnico
+Eletronica Aplicada
+Eletronica Basica
+Engenharia de Software I
+Engenharia de Software II
+Engenharia Economica
+Estrutura de Dados
+Etica em Informatica
+Fisica
+Fisica Geral
+Gerencia de Projetos
+Grafos
+Iniciacao Tecnico-Cientifica
+Inteligencia Artificial
+Interface Humano-Computador
+Introducao a Engenharia de Computacao
+Introducao a fisica
+Introducao ao Calculo
+Linguagens Formais
+Matematica Aplicada a Engenharia
+Matematica Computacional
+Microcontroladores
+Otica e Fisica Para Semicondutores
+Programacao Orientada a Onbjetos I
+Programacao Orientada a Objetos II
+Probabilidade e Estatisca
+Processador Digital de Sinais
+Projeto de Sistemas Digitais
+Projeto de Sistemas Embarcados
+Quimica I
+Quimica II
+Redes de Computadores I
+Redes de Computadores II
+Resistencia dos Materiais
+Simulacao Discreta
+Sistemas Distribuidos
+Sistemas em Tempo Real
+Sistemas Operacionais
+Sistemas Roboticos
+Topicos Especiais em Engenharia de Computacao
+Topicos Especiais em Hardware
+Topicos Especiais em Integracao de Sftware Hardware
+Trabalho Tecnico Cientifico de Conclusao de Curso I
+Trabalho Tecnico Cientifico de Conclusao de Curso II
+Trabalho Tecnico Cientifico de Conclusao de Curso III

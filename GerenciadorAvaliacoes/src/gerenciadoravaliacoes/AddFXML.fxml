@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="57.0" layoutY="660.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="120.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="781.0" layoutY="660.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="138.0" layoutY="29.0" text="Nome" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfNome" layoutX="78.0" layoutY="71.0" prefWidth="600.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="80.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label layoutX="138.0" layoutY="142.0" text="Peso" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="183.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfPeso" layoutX="78.0" layoutY="200.0" prefWidth="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="213.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label layoutX="138.0" layoutY="246.0" text="Disciplina" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="316.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <MenuButton fx:id="menuDisciplinas" layoutX="95.0" layoutY="358.0" mnemonicParsing="false" prefWidth="600.0" text="Disciplinas" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="346.0">
+        <items>
+            <MenuItem fx:id="item0" mnemonicParsing="false" onAction="#selecionar0" text="Administracao de Negocios de Base Tecnologica" />
+            <MenuItem fx:id="item1" mnemonicParsing="false" onAction="#selecionar1" text="Analise de Circuitos Eletricos" />
+            <MenuItem fx:id="item2" mnemonicParsing="false" onAction="#selecionar2" text="Analise e Controle de Processos" />
+            <MenuItem fx:id="item3" mnemonicParsing="false" onAction="#selecionar3" text="Algebra I" />
+            <MenuItem fx:id="item4" mnemonicParsing="false" onAction="#selecionar4" text="Algebra II" />
+            <MenuItem fx:id="item5" mnemonicParsing="false" onAction="#selecionar5" text="Algoritmos e Programacao I" />
+            <MenuItem fx:id="item6" mnemonicParsing="false" onAction="#selecionar6" text="Algoritmos e Programacao II" />
+            <MenuItem fx:id="item7" mnemonicParsing="false" onAction="#selecionar7" text="Arquitetura de Computadores I" />
+            <MenuItem fx:id="item8" mnemonicParsing="false" onAction="#selecionar8" text="Arquitetura de Computadores II" />
+            <MenuItem fx:id="item9" mnemonicParsing="false" onAction="#selecionar9" text="Banco de Dados" />
+            <MenuItem fx:id="item10" mnemonicParsing="false" onAction="#selecionar10" text="Calculo I" />
+            <MenuItem fx:id="item11" mnemonicParsing="false" onAction="#selecionar11" text="Calculo II" />
+            <MenuItem fx:id="item12" mnemonicParsing="false" onAction="#selecionar12" text="Calculo III" />
+            <MenuItem fx:id="item13" mnemonicParsing="false" onAction="#selecionar13" text="Calculo Numerico" />
+            <MenuItem fx:id="item14" mnemonicParsing="false" onAction="#selecionar14" text="Circuitos Digitais" />
+            <MenuItem fx:id="item15" mnemonicParsing="false" onAction="#selecionar15" text="Comunicacao Digital" />
+            <MenuItem fx:id="item16" mnemonicParsing="false" onAction="#selecionar16" text="Controle Logico de Sistemas" />
+            <MenuItem fx:id="item17" mnemonicParsing="false" onAction="#selecionar17" text="Desenho Tecnico" />
+            <MenuItem fx:id="item18" mnemonicParsing="false" onAction="#selecionar18" text="Eletronica Aplicada" />
+            <MenuItem fx:id="item19" mnemonicParsing="false" onAction="#selecionar19" text="Eletronica Basica" />
+            <MenuItem fx:id="item20" mnemonicParsing="false" onAction="#selecionar20" text="Engenharia de Software I" />
+            <MenuItem fx:id="item21" mnemonicParsing="false" onAction="#selecionar21" text="Engenharia de Software II" />
+            <MenuItem fx:id="item22" mnemonicParsing="false" onAction="#selecionar22" text="Engenharia Economica" />
+            <MenuItem fx:id="item23" mnemonicParsing="false" onAction="#selecionar23" text="Estrutura de Dados" />
+            <MenuItem fx:id="item24" mnemonicParsing="false" onAction="#selecionar24" text="Etica em Informatica" />
+            <MenuItem fx:id="item25" mnemonicParsing="false" onAction="#selecionar25" text="Fisica" />
+            <MenuItem fx:id="item26" mnemonicParsing="false" onAction="#selecionar26" text="Fisica Geral" />
+            <MenuItem fx:id="item27" mnemonicParsing="false" onAction="#selecionar27" text="Gerencia de Projetos" />
+            <MenuItem fx:id="item28" mnemonicParsing="false" onAction="#selecionar28" text="Grafos" />
+            <MenuItem fx:id="item29" mnemonicParsing="false" onAction="#selecionar29" text="Iniciacao Tecnico-Cientifica" />
+            <MenuItem fx:id="item30" mnemonicParsing="false" onAction="#selecionar30" text="Inteligencia Artificial" />
+            <MenuItem fx:id="item31" mnemonicParsing="false" onAction="#selecionar31" text="Interface Humano-Computador" />
+            <MenuItem fx:id="item32" mnemonicParsing="false" onAction="#selecionar32" text="Introducao a Engenharia de Computacao" />
+            <MenuItem fx:id="item33" mnemonicParsing="false" onAction="#selecionar33" text="Introducao a fisica" />
+            <MenuItem fx:id="item34" mnemonicParsing="false" onAction="#selecionar34" text="Introducao ao Calculo" />
+            <MenuItem fx:id="item35" mnemonicParsing="false" onAction="#selecionar35" text="Linguagens Formais" />
+            <MenuItem fx:id="item36" mnemonicParsing="false" onAction="#selecionar36" text="Matematica Aplicada a Engenharia" />
+            <MenuItem fx:id="item37" mnemonicParsing="false" onAction="#selecionar37" text="Matematica Computacional" />
+            <MenuItem fx:id="item38" mnemonicParsing="false" onAction="#selecionar38" text="Microcontroladores" />
+            <MenuItem fx:id="item39" mnemonicParsing="false" onAction="#selecionar39" text="Otica e Fisica Para Semicondutores" />
+            <MenuItem fx:id="item40" mnemonicParsing="false" onAction="#selecionar40" text="Programacao Orientada a Onbjetos I" />
+            <MenuItem fx:id="item41" mnemonicParsing="false" onAction="#selecionar41" text="Programacao Orientada a Objetos II" />
+            <MenuItem fx:id="item42" mnemonicParsing="false" onAction="#selecionar42" text="Probabilidade e Estatisca" />
+            <MenuItem fx:id="item43" mnemonicParsing="false" onAction="#selecionar43" text="Processador Digital de Sinais" />
+            <MenuItem fx:id="item44" mnemonicParsing="false" onAction="#selecionar44" text="Projeto de Sistemas Digitais" />
+            <MenuItem fx:id="item45" mnemonicParsing="false" onAction="#selecionar45" text="Projeto de Sistemas Embarcados" />
+            <MenuItem fx:id="item46" mnemonicParsing="false" onAction="#selecionar46" text="Quimica I" />
+            <MenuItem fx:id="item47" mnemonicParsing="false" onAction="#selecionar47" text="Quimica II" />
+            <MenuItem fx:id="item48" mnemonicParsing="false" onAction="#selecionar48" text="Redes de Computadores I" />
+            <MenuItem fx:id="item49" mnemonicParsing="false" onAction="#selecionar49" text="Redes de Computadores II" />
+            <MenuItem fx:id="item50" mnemonicParsing="false" onAction="#selecionar50" text="Resistencia dos Materiais" />
+            <MenuItem fx:id="item51" mnemonicParsing="false" onAction="#selecionar51" text="Simulacao Discreta" />
+            <MenuItem fx:id="item52" mnemonicParsing="false" onAction="#selecionar52" text="Sistemas Distribuidos" />
+            <MenuItem fx:id="item53" mnemonicParsing="false" onAction="#selecionar53" text="Sistemas em Tempo Real" />
+            <MenuItem fx:id="item54" mnemonicParsing="false" onAction="#selecionar54" text="Sistemas Operacionais" />
+            <MenuItem fx:id="item55" mnemonicParsing="false" onAction="#selecionar55" text="Sistemas Roboticos" />
+            <MenuItem fx:id="item56" mnemonicParsing="false" onAction="#selecionar56" text="Topicos Especiais em Engenharia de Computacao" />
+            <MenuItem fx:id="item57" mnemonicParsing="false" onAction="#selecionar57" text="Topicos Especiais em Hardware" />
+            <MenuItem fx:id="item58" mnemonicParsing="false" onAction="#selecionar58" text="Topicos Especiais em Integracao de Sftware Hardware" />
+            <MenuItem fx:id="item59" mnemonicParsing="false" onAction="#selecionar59" text="Trabalho Tecnico Cientifico de Conclusao de Curso I" />
+            <MenuItem fx:id="item60" mnemonicParsing="false" onAction="#selecionar60" text="Trabalho Tecnico Cientifico de Conclusao de Curso II" />
+            <MenuItem fx:id="item61" mnemonicParsing="false" onAction="#selecionar61" text="Trabalho Tecnico Cientifico de Conclusao de Curso III" />
+        </items>
+         <font>
+            <Font size="16.0" />
+         </font>
+      </MenuButton>
+      <Label layoutX="138.0" layoutY="345.0" text="Media" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="450.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <MenuButton fx:id="menuMedia" layoutX="103.0" layoutY="494.0" mnemonicParsing="false" text="Medias" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="480.0">
+        <items>
+            <MenuItem fx:id="m1" mnemonicParsing="false" onAction="#selecionarM1" text="M1" />
+          <MenuItem fx:id="m2" mnemonicParsing="false" onAction="#selecionarM2" text="M2" />
+          <MenuItem fx:id="m3" mnemonicParsing="false" onAction="#selecionarM3" text="M3" />
+        </items>
+         <font>
+            <Font size="16.0" />
+         </font>
+      </MenuButton>
+      <Label fx:id="lb1" layoutX="108.0" layoutY="129.0" textFill="RED" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="130.0" />
+      <Label fx:id="lb2" layoutX="103.0" layoutY="263.0" textFill="RED" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="260.0" />
+      <Label fx:id="lb3" layoutX="103.0" layoutY="395.0" textFill="RED" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="400.0" />
+      <Label fx:id="lb4" layoutX="103.0" layoutY="537.0" textFill="RED" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="537.0" />
+   </children>
+</AnchorPane>
